@@ -9,9 +9,37 @@
 
     {{ form_start(form) }}
 
-    {{ form_widget(form) }}
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-light">
+                    <h2 class="h5 alert-heading">Informations générales</h2>
+                    <hr>
+                    {{ form_row(form.firstName) }}
+                    {{ form_row(form.lastName) }}
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.picture) }}
+                </div>            
+            </div>
+            <div class="col">
+                <div class="alert alert-light">
+                    <h2 class="h5 alert-heading">Mot de passe</h2>
+                    <hr>
+                    {{ form_row(form.hash) }}
+                    {{ form_row(form.passwordConfirm) }}
+                </div>
+                <div class="alert alert-light">
+                    <h2 class="h5 alert-heading">Détails</h2>
+                    <hr>
+                    {{ form_row(form.introduction) }}
+                    {{ form_row(form.description) }}
 
-    <button type="submit" class="btn btn-success">Confirmer l'inscription</button>
+                    <hr>
+                    <p>Vous y êtes presque, confirmez votre inscription et rejoignez nous</p>
+                    <button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Confirmez l'inscription</button>
+                </div>
+            </div>
+        </div>
+
 
     {{ form_end(form) }}
 </div>

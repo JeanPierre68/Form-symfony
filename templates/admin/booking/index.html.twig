@@ -5,7 +5,7 @@
 {% block body %}
 
     <div class="container-fluid">
-        <h1 class="h3 my-5">Administration des réservations</h1>
+        <h1 class="h3 my-3">Administration des réservations</h1>
 
         <table class="table table-hover">
             <thead>
@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tdoby>
-                {% for booking in bookings %}
+                {% for booking in pagination.data %}
                 <tr>
                     <td>{{booking.id}}</td>
                     <td>{{booking.createdAt | date('d/m/Y - H:i')}}</td>
@@ -29,13 +29,14 @@
                     <td>{{booking.duration}}</td>
                     <td>{{booking.amount}}</td>
                     <td>
-                        <a href="#" class="btn btn-info btn-sm"><i class="fas fa-pen"></i></a>
-                        <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                        <a href="{{ path('admin_booking_edit', {'id': booking.id}) }}" class="btn btn-info btn-sm"><i class="fas fa-pen"></i></a>
+                        <a href="{{ path('admin_booking_delete', {'id': booking.id}) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 {% endfor %}
             </tdoby>
         </table>
+        {{ pagination.display() }}
     </div>
 
 {% endblock %}
